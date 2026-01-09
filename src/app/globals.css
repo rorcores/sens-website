@@ -18,15 +18,15 @@
 }
 
 :root {
-  /* Mustard green as main background per branding */
-  --background: #A3A052;
-  --background-elevated: #8E8B48;
-  --foreground: #1A1714;
-  --foreground-muted: #2E2A24;
-  --accent: #0D0C0B;
-  --accent-warm: #2A2826;
-  --accent-muted: #3A3734;
-  --border: rgba(13, 12, 11, 0.3);
+  /* Mustard green as main background per branding - RGB(60, 67, 33) */
+  --background: #3C4321;
+  --background-elevated: #454D27;
+  --foreground: #FFFFFF;
+  --foreground-muted: rgba(255, 255, 255, 0.7);
+  --accent: #FFFFFF;
+  --accent-warm: rgba(255, 255, 255, 0.9);
+  --accent-muted: rgba(255, 255, 255, 0.5);
+  --border: rgba(255, 255, 255, 0.2);
   --font-seasons: 'The Seasons', Georgia, serif;
 }
 
