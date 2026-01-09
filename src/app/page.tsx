@@ -191,15 +191,15 @@ export default function Home() {
       <section className="py-40 px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background-elevated/50 to-background" />
         <AnimatedSection className="max-w-5xl mx-auto text-center relative z-10">
-          <span className="text-[10px] tracking-[0.4em] text-accent uppercase mb-12 block">Our Philosophy</span>
-          <blockquote className="text-2xl md:text-3xl lg:text-4xl font-extralight leading-relaxed tracking-wide text-foreground/90">
+          <span className="text-[10px] tracking-[0.4em] text-accent uppercase mb-12 block font-medium">Our Philosophy</span>
+          <blockquote className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed tracking-wide text-foreground">
             <span className="text-accent text-5xl font-serif leading-none">"</span>
             <br />
             We believe in the transformative power of presence—
             <br />
-            <span className="text-foreground-muted">in moments crafted with care,</span>
+            <span className="text-foreground/80">in moments crafted with care,</span>
             <br />
-            <span className="text-foreground-muted">connections forged with intention,</span>
+            <span className="text-foreground/80">connections forged with intention,</span>
             <br />
             and spaces that honor the art of being.
             <br />
@@ -357,16 +357,16 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection className="text-center">
             <div className="relative inline-block">
-              <span className="absolute -top-8 -left-8 text-8xl text-accent/10 font-serif">"</span>
-              <p className="text-xl md:text-2xl font-extralight leading-relaxed tracking-wide text-foreground/80 italic">
+              <span className="absolute -top-8 -left-8 text-8xl text-accent/20 font-serif">"</span>
+              <p className="text-xl md:text-2xl font-light leading-relaxed tracking-wide text-foreground italic">
                 In a world of constant noise, SENS creates space for what truly matters—
                 presence, connection, and the subtle art of simply being.
               </p>
-              <span className="absolute -bottom-8 -right-8 text-8xl text-accent/10 font-serif rotate-180">"</span>
+              <span className="absolute -bottom-8 -right-8 text-8xl text-accent/20 font-serif rotate-180">"</span>
             </div>
             <div className="mt-12 pt-8">
-              <div className="w-8 h-px bg-accent/40 mx-auto mb-4" />
-              <p className="text-xs tracking-[0.3em] text-foreground-muted uppercase">The SENS Ethos</p>
+              <div className="w-8 h-px bg-accent/50 mx-auto mb-4" />
+              <p className="text-xs tracking-[0.3em] text-foreground-muted uppercase font-medium">The SENS Ethos</p>
             </div>
           </AnimatedSection>
         </div>
@@ -384,49 +384,49 @@ export default function Home() {
               Join the Circle
             </h2>
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent mx-auto mb-10" />
-            <p className="text-foreground-muted font-light leading-relaxed mb-16 text-sm md:text-base">
+            <p className="text-foreground-muted leading-relaxed mb-16 text-sm md:text-base">
               SENS welcomes women who value intentional connection and elevated experiences. 
               <br />
-              <span className="text-foreground-muted/60">Membership is by application only.</span>
+              <span className="text-foreground-muted/80">Membership is by application only.</span>
             </p>
           </AnimatedSection>
           
           <AnimatedSection delay={200}>
             <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="group">
-                  <input 
-                    type="text" 
-                    placeholder="First Name"
-                    className="w-full bg-transparent border-b border-border/50 py-4 text-sm font-light tracking-wide placeholder:text-foreground-muted/40 focus:border-accent focus:outline-none transition-all duration-500 group-hover:border-foreground-muted/50"
-                    onFocus={() => setCursorVariant('default')}
-                  />
-                </div>
-                <div className="group">
-                  <input 
-                    type="text" 
-                    placeholder="Last Name"
-                    className="w-full bg-transparent border-b border-border/50 py-4 text-sm font-light tracking-wide placeholder:text-foreground-muted/40 focus:border-accent focus:outline-none transition-all duration-500 group-hover:border-foreground-muted/50"
-                    onFocus={() => setCursorVariant('default')}
-                  />
-                </div>
+              <div className="group">
+                <input 
+                  type="text" 
+                  placeholder="First Name"
+                  className="w-full bg-transparent border-b border-border py-4 text-sm tracking-wide placeholder:text-foreground-muted/60 focus:border-accent focus:outline-none transition-all duration-500 group-hover:border-foreground-muted"
+                  onFocus={() => setCursorVariant('default')}
+                />
               </div>
               <div className="group">
                 <input 
-                  type="email" 
-                  placeholder="Email Address"
-                  className="w-full bg-transparent border-b border-border/50 py-4 text-sm font-light tracking-wide placeholder:text-foreground-muted/40 focus:border-accent focus:outline-none transition-all duration-500 group-hover:border-foreground-muted/50"
+                  type="text" 
+                  placeholder="Last Name"
+                  className="w-full bg-transparent border-b border-border py-4 text-sm tracking-wide placeholder:text-foreground-muted/60 focus:border-accent focus:outline-none transition-all duration-500 group-hover:border-foreground-muted"
                   onFocus={() => setCursorVariant('default')}
                 />
               </div>
-              <div className="group">
-                <textarea 
-                  placeholder="Tell us about yourself and what draws you to SENS..."
-                  rows={4}
-                  className="w-full bg-transparent border-b border-border/50 py-4 text-sm font-light tracking-wide placeholder:text-foreground-muted/40 focus:border-accent focus:outline-none transition-all duration-500 resize-none group-hover:border-foreground-muted/50"
-                  onFocus={() => setCursorVariant('default')}
-                />
-              </div>
+            </div>
+            <div className="group">
+              <input 
+                type="email" 
+                placeholder="Email Address"
+                className="w-full bg-transparent border-b border-border py-4 text-sm tracking-wide placeholder:text-foreground-muted/60 focus:border-accent focus:outline-none transition-all duration-500 group-hover:border-foreground-muted"
+                onFocus={() => setCursorVariant('default')}
+              />
+            </div>
+            <div className="group">
+              <textarea 
+                placeholder="Tell us about yourself and what draws you to SENS..."
+                rows={4}
+                className="w-full bg-transparent border-b border-border py-4 text-sm tracking-wide placeholder:text-foreground-muted/60 focus:border-accent focus:outline-none transition-all duration-500 resize-none group-hover:border-foreground-muted"
+                onFocus={() => setCursorVariant('default')}
+              />
+            </div>
               
               <div className="pt-8">
                 <button 
