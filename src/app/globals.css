@@ -19,7 +19,7 @@
 
 :root {
   /* Mustard green as main background per branding - RGB(60, 67, 33) */
-  --background: #3C4321;
+  --background: #63821e;
   --background-elevated: #454D27;
   --foreground: #FFFFFF;
   --foreground-muted: rgba(255, 255, 255, 0.7);
