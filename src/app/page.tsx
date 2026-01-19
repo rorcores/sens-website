@@ -135,7 +135,7 @@ export default function Home() {
             className={`text-lg md:text-xl tracking-[0.3em] text-foreground-muted mb-2 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '700ms' }}
           >
-            Social Club
+            SOCIAL CLUB
           </p>
           
           {/* Animated line */}
@@ -152,13 +152,13 @@ export default function Home() {
               className={`text-base md:text-lg tracking-wide text-foreground transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: '1100ms' }}
             >
-              Shaping social wellness through sensory-led experiences.
+              SHAPING SOCIAL WELLNESS THROUGH SENSORY-LED EXPERIENCES
             </p>
             <p 
               className={`text-base md:text-lg tracking-wide text-foreground-muted font-light italic transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: '1200ms' }}
             >
-              For women who seek connection with intention.
+              A LUXURY WELLNESS COMMUNITY FOR WOMEN
             </p>
           </div>
           
