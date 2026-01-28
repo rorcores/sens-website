@@ -1,9 +1,11 @@
 "use server";
 
-import { promises as fs } from "fs";
-import path from "path";
+import { Redis } from "@upstash/redis";
 
-const WAITLIST_FILE = path.join(process.cwd(), "waitlist.json");
+const redis = new Redis({
+  url: process.env.KV_REST_API_URL!,
+  token: process.env.KV_REST_API_TOKEN!,
+});
 
 interface WaitlistEntry {
   firstName: string;
@@ -14,19 +16,6 @@ interface WaitlistEntry {
   timestamp: string;
 }
 
-async function getWaitlist(): Promise<WaitlistEntry[]> {
-  try {
-    const data = await fs.readFile(WAITLIST_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-async function saveWaitlist(entries: WaitlistEntry[]) {
-  await fs.writeFile(WAITLIST_FILE, JSON.stringify(entries, null, 2));
-}
-
 export async function submitWaitlist(formData: FormData) {
   const firstName = (formData.get("firstName") as string || "").toUpperCase();
   const lastName = (formData.get("lastName") as string || "").toUpperCase();
@@ -34,19 +23,21 @@ export async function submitWaitlist(formData: FormData) {
   const ageRange = formData.get("ageRange") as string;
   const whySens = (formData.get("whySens") as string || "").toUpperCase();
 
-  try {
-    const waitlist = await getWaitlist();
-    
-    waitlist.push({
-      firstName,
-      lastName,
-      email,
-      ageRange,
-      whySens,
-      timestamp: new Date().toISOString(),
-    });
+  const entry: WaitlistEntry = {
+    firstName,
+    lastName,
+    email,
+    ageRange,
+    whySens,
+    timestamp: new Date().toISOString(),
+  };
 
-    await saveWaitlist(waitlist);
+  try {
+    // Store each entry with email as key (prevents duplicates)
+    await redis.hset(`waitlist:${email}`, entry);
+    
+    // Also add to a list for easy retrieval of all entries
+    await redis.lpush("waitlist:all", JSON.stringify(entry));
     
     return { success: true };
   } catch (error) {
