@@ -33,8 +33,8 @@ export async function submitWaitlist(formData: FormData) {
   };
 
   try {
-    // Store each entry with email as key (prevents duplicates)
-    await redis.hset(`waitlist:${email}`, entry);
+    // Store entry with email as key (prevents duplicates)
+    await redis.set(`waitlist:${email}`, JSON.stringify(entry));
     
     // Also add to a list for easy retrieval of all entries
     await redis.lpush("waitlist:all", JSON.stringify(entry));
