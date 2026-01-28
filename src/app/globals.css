@@ -3,7 +3,7 @@
 /* The Seasons font for SENS branding */
 @font-face {
   font-family: 'The Seasons';
-  src: url('/fonts/Fontspring-DEMO-theseasons-reg.otf') format('opentype');
+  src: url('/fonts/the-seasons-regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -11,16 +11,25 @@
 
 @font-face {
   font-family: 'The Seasons';
-  src: url('/fonts/Fontspring-DEMO-theseasons-lt.otf') format('opentype');
+  src: url('/fonts/the-seasons-regular.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
+/* Alta font for secondary branding */
+@font-face {
+  font-family: 'Alta';
+  src: url('/fonts/alta-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* Mustard green as main background per branding - RGB(60, 67, 33) */
+  /* Mustard green as main background per branding - Unified to #63821e */
   --background: #63821e;
-  --background-elevated: #454D27;
+  --background-elevated: #63821e;
   --foreground: #FFFFFF;
   --foreground-muted: rgba(255, 255, 255, 0.7);
   --accent: #FFFFFF;
@@ -28,6 +37,7 @@
   --accent-muted: rgba(255, 255, 255, 0.5);
   --border: rgba(255, 255, 255, 0.2);
   --font-seasons: 'The Seasons', Georgia, serif;
+  --font-alta: 'Alta', serif;
 }
 
 @theme inline {
@@ -41,6 +51,7 @@
   --color-border: var(--border);
   --font-sans: var(--font-poppins);
   --font-seasons: var(--font-seasons);
+  --font-alta: var(--font-alta);
 }
 
 * {
@@ -58,6 +69,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1.7;
+  text-transform: uppercase;
 }
 
 ::selection {
