@@ -2,11 +2,6 @@
 
 import { Redis } from "@upstash/redis";
 
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN!,
-});
-
 interface WaitlistEntry {
   firstName: string;
   lastName: string;
@@ -14,6 +9,13 @@ interface WaitlistEntry {
   ageRange: string;
   whySens: string;
   timestamp: string;
+}
+
+function getRedis() {
+  return new Redis({
+    url: process.env.KV_REST_API_URL!,
+    token: process.env.KV_REST_API_TOKEN!,
+  });
 }
 
 export async function submitWaitlist(formData: FormData) {
@@ -33,6 +35,8 @@ export async function submitWaitlist(formData: FormData) {
   };
 
   try {
+    const redis = getRedis();
+    
     // Store entry with email as key (prevents duplicates)
     await redis.set(`waitlist:${email}`, JSON.stringify(entry));
     
